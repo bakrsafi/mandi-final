@@ -1,0 +1,102 @@
+.slider-container {
+    position: relative;
+    width: 360px; 
+    height: 450px;
+    overflow: hidden;
+    margin-left: 20%; 
+    margin-right: 0; 
+}
+@media (max-width: 480px) {
+    .slider-container {
+        position: relative;
+        width: 90%; 
+        height: 450px;
+        overflow: hidden; 
+        margin-left: 5%; 
+        margin-right: 0; 
+        margin-top: 10px;
+    }
+  }
+.slider {
+    display: flex;
+    transition: transform 1s ease;
+
+}
+
+.slider-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.button-home {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    transform: translateY(-50%);
+}
+
+.prev {
+    left: 10px;
+    z-index: 0;
+}
+
+.next {
+    right: 10px;
+    z-index: 0;
+}
+
+.border{
+    border-bottom: 2px solid #f68123 !important;
+    border-radius: 5%;
+}
+.arabic-text {
+    direction: rtl;
+}
+.text-align{
+    text-align: right;
+}
+.gallery-single.active .why-text {
+    bottom: 0px;
+  }
+  
+  .why-text {
+    position: absolute;
+    bottom: -100%;
+    transition: bottom 0.3s ease;
+    z-index: 3;
+  }
+  
+
+  .mr{
+    margin: 3px;
+    border: 1px dashed #f68123 !important;
+  }
+
+/* هذا الكود سيؤثر على الشاشات الصغيرة فقط */
+@media (max-width: 568px) {
+    .slider-images {
+      display: none; /* إخفاء جميع الصور */
+    }
+  
+    .slider-images.mobile-slide {
+      display: block; /* إظهار الصورة المحددة في الشاشات الصغيرة */
+    }
+  }
+  
+  /* هذا الكود سيؤثر على الشاشات الكبيرة */
+  @media (min-width: 569px) {
+    .slider-images {
+      display: block; /* إظهار جميع الصور في الشاشات الكبيرة */
+    }
+  
+    .slider-images.mobile-slide {
+      display: none; /* إخفاء الصورة التي ظهرت في الشاشات الصغيرة */
+    }
+  }
+  
