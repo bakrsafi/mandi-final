@@ -1,0 +1,177 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}   
+
+	<!-- Start All Pages -->
+	<div class="all-page-title page-breadcrumb">
+		<div class="container text-center">
+			<div class="row">
+				<div class="col-lg-12">
+					<h1>قائمة الطعام الخاصة</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End All Pages -->
+	
+
+    	
+	<!-- Start Menu -->
+	<div class="menu-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="heading-title text-center">
+						<h2>قائمة الطعام الخاصة</h2>
+						<p class="arabic-text">استمتع بتجربة أشهى الأطباق العربية الأصيلة المحضرة بعناية وفقاً للوصفات التقليدية.</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="special-menu text-center">
+						<div class="button-group filter-button-group">
+							<button class="active mr" data-filter=".main-dishes">الاطباق الرئيسية</button>
+							<button class=" mr" data-filter=".hot-appetizers">مقبلات ساخنة</button>
+							<button class=" mr" data-filter=".cold-appetizers">مقبلات باردة</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- filtering -->
+			<form method="get" action="" id="filterForm" class="text-center">
+				المكون الرئيسي
+				<br>
+				<label class="checkbox-label">
+					<input class="checkbox-size" type="checkbox" name="meat_only" value="1"
+						id="meatCheckbox"
+						{% if request.GET.meat_only %}checked{% endif %}
+						onchange="handleCheckboxChange(this)">
+					لحم
+				</label>
+				<span>   </span>
+				<label class="checkbox-label">
+					<input class="checkbox-size" type="checkbox" name="chicken_only" value="1"
+						id="chickenCheckbox"
+						{% if request.GET.chicken_only %}checked{% endif %}
+						onchange="handleCheckboxChange(this)">
+					دجاج
+				</label>
+			</form>
+
+
+
+
+
+
+			<!-- filtering -->
+
+			<div class="row special-list">
+
+
+				{% for product1 in product %}
+				<div class="col-lg-4 col-md-6 special-grid size-card {{ product1.category|slugify }}">
+					<div class="circle">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#bdbdbd" d="M48 80a48 48 0 1 1 96 0A48 48 0 1 1 48 80zM0 224c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32l0 224 32 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 512c-17.7 0-32-14.3-32-32s14.3-32 32-32l32 0 0-192-32 0c-17.7 0-32-14.3-32-32z"/></svg>
+					</div>
+					<div class="gallery-single fix product-card">
+					<img class="img-fluid"
+						src="{% if product1.image %}{{ product1.image.url }}{% else %}{% static 'images/default.png' %}{% endif %}"
+						alt="Image">
+						
+					<div class="why-text">
+						<h4 class="arabic-text text-align">{{ product1.name }}<samp>  </samp>{% if product1.food_day %}({{product1.food_day}}){% endif %}</h4>
+						<h6 class="fc arabic-text text-align">{{ product1.description }}</h6>
+						<h6 class="fc arabic-text text-align">{{ product1.ingredients }}</h6>
+						{% if product1.nopeople1 %}
+						<h5 class="text-align">شخص: {{ product1.nopeople1|intcomma }} ل.س</h5>
+						{% endif %}
+						{% if product1.nopeople2 %}
+						<h5 class="text-align">شخصين: {{ product1.nopeople2|intcomma }} ل.س</h5>
+						{% endif %}
+						{% if product1.nopeople3 %}
+						<h5 class="text-align">ثلاث اشخاص: {{ product1.nopeople3|intcomma }} ل.س</h5>
+						{% endif %}
+						{% if product1.nopeople4 %}
+						<h5 class="text-align">اربعة اشخاص: {{ product1.nopeople4|intcomma }} ل.س</h5>
+						{% endif %}
+						{% if product1.nopeople5_6 %}
+						<h5 class="text-align">ست اشخاص: {{ product1.nopeople5_6|intcomma }} ل.س</h5>
+						{% endif %}
+						{% if product1.nopeople7_8 %}
+						<h5 class="text-align">ثمان اشخاص: {{ product1.nopeople7_8|intcomma }} ل.س</h5>
+						{% endif %}
+						{% if product1.price %}
+						<h5 class="text-align">{{ product1.price|intcomma }} ل.س</h5>
+						{% endif %}
+						<h6 class="fc text-align">{{ product1.category }}</h6>
+					</div>
+					</div>
+				</div>
+				{% endfor %}
+
+								
+				
+			</div>
+		</div>
+	</div>
+	<!-- End Menu -->
+<script>
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.gallery-single');
+
+  function toggleCard(e) {
+    e.stopPropagation();
+    this.classList.toggle('active');
+  }
+
+  cards.forEach(card => {
+    // إضافة click فقط
+    card.addEventListener('click', toggleCard);
+  });
+
+  // نراقب scroll
+  window.addEventListener('scroll', function() {
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+      if (!inView) {
+        card.classList.remove('active');
+      }
+    });
+  });
+
+  // لو بدك تخفي العناصر لما تضغط برة (اختياري)
+  document.addEventListener('click', function() {
+    cards.forEach(card => card.classList.remove('active'));
+  });
+
+  // إزالة التعامل مع touchstart
+  document.addEventListener('touchstart', function(e) {
+    if (!e.target.closest('.gallery-single')) {
+      cards.forEach(card => card.classList.remove('active'));
+    }
+  });
+});
+
+    function handleCheckboxChange(checkbox) {
+        const meatCheckbox = document.getElementById('meatCheckbox');
+        const chickenCheckbox = document.getElementById('chickenCheckbox');
+
+        if (checkbox === meatCheckbox && meatCheckbox.checked) {
+            chickenCheckbox.checked = false;
+        } else if (checkbox === chickenCheckbox && chickenCheckbox.checked) {
+            meatCheckbox.checked = false;
+        }
+
+        document.getElementById('filterForm').submit();
+    }
+
+</script>
+
+
+
+{% endblock content %}   

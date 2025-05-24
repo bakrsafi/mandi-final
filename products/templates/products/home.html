@@ -1,0 +1,200 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}   
+
+
+	<link rel="stylesheet" href="{% static '/leaflet/leaflet.css' %}">
+	
+	<!-- Start slides -->
+	<div id="slides" class="cover-slides">
+		<ul class="slides-container">
+			<li class="text-center">
+				<img src="{% static 'images/slider-05.jpg' %}" alt="">
+				<img  class="slider-images mobile-slide" src="{% static 'images/slider-mobile-05.jpg' %}" alt="">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h1 class="m-b-20 arabic-text"><strong>مرحبًا بكم<br> في مطعم مندي تنور وحطب</strong></h1>
+							<p class="m-b-40 arabic-text text-size">استمتعوا بأشهى أطباق المندي، الفريكة، والمأكولات المشوية على الحطب،<br> المحضّرة بأفضل المكونات وبأسلوب الطهي التقليدي الذي يعكس تراثنا العريق.</p>
+							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="{% url 'menu' %}">قائمة الطعام</a></p>
+						</div>
+					</div>
+				</div>
+			</li>
+
+			<li class="text-center">
+				<img src="{% static 'images/slider-02.jpg' %}" alt="">
+				<img  class="slider-images mobile-slide" src="{% static 'images/slider-mobile-02.jpg' %}" alt="">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h1 class="m-b-20 arabic-text"><strong>مرحبًا بكم<br> في مطعم مندي تنور وحطب</strong></h1>
+							<p class="m-b-40 arabic-text text-size">استمتعوا بأشهى أطباق المندي، الفريكة، والمأكولات المشوية على الحطب،<br> المحضّرة بأفضل المكونات وبأسلوب الطهي التقليدي الذي يعكس تراثنا العريق.</p>
+							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="{% url 'menu' %}">قائمة الطعام</a></p>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="text-center">
+				<img  class="slider-images" src="{% static 'images/slider-01.jpg' %}" alt="">
+				<img  class="slider-images mobile-slide" src="{% static 'images/slider-mobile-01.jpg' %}" alt="">
+				
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h1 class="m-b-20 arabic-text"><strong>مرحبًا بكم<br> في مطعم مندي تنور وحطب</strong></h1>
+							<p class="m-b-40 arabic-text text-size">استمتعوا بأشهى أطباق المندي، الفريكة، والمأكولات المشوية على الحطب،<br> المحضّرة بأفضل المكونات وبأسلوب الطهي التقليدي الذي يعكس تراثنا العريق.</p>
+							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="{% url 'menu' %}">قائمة الطعام</a></p>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="text-center">
+				<img src="{% static 'images/slider-03.jpg' %}" alt="">
+				<img  class="slider-images mobile-slide" src="{% static 'images/slider-mobile-03.jpg' %}" alt="">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h1 class="m-b-20 arabic-text"><strong>مرحبًا بكم<br> في مطعم مندي تنور وحطب</strong></h1>
+							<p class="m-b-40 arabic-text text-size">استمتعوا بأشهى أطباق المندي، الفريكة، والمأكولات المشوية على الحطب،<br> المحضّرة بأفضل المكونات وبأسلوب الطهي التقليدي الذي يعكس تراثنا العريق.</p>
+							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="{% url 'menu' %}">قائمة الطعام</a></p>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="text-center">
+				<img src="{% static 'images/slider-04.jpg' %}" alt="">
+				<img  class="slider-images mobile-slide" src="{% static 'images/slider-mobile-04.jpg' %}" alt="">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h1 class="m-b-20 arabic-text"><strong>مرحبًا بكم<br> في مطعم مندي تنور وحطب</strong></h1>
+							<p class="m-b-40 arabic-text text-size">استمتعوا بأشهى أطباق المندي، الفريكة، والمأكولات المشوية على الحطب،<br> المحضّرة بأفضل المكونات وبأسلوب الطهي التقليدي الذي يعكس تراثنا العريق.</p>
+							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="{% url 'menu' %}">قائمة الطعام</a></p>
+						</div>
+					</div>
+				</div>
+			</li>
+
+		</ul>
+		<div class="slides-navigation">
+			<a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+			<a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+		</div>
+	</div>
+	<!-- End slides -->
+
+
+
+	<!-- Start About -->
+	<div class="about-section-box border">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-6">
+					<img src='{% static "images/gallery-img-04.jpg" %}'alt="" class="img-fluid">
+				</div>
+				<div class="col-lg-6 col-md-6 text-center">
+					<div class="inner-column">
+						<h1>برنامج <span> الطبخ اليومي</span></h1>
+						<h3>المندي والفريكة متوفران يوميًا</h3>
+						<p>
+							السبت : مضغوط
+							<br>الأحد : منسف أردني 
+							<br>الأثنين : بخاري 
+							<br>الثلاثاء : مدفون 
+							<br>الاربعاء : برياني
+							<br> الخميس  : مليحي 
+							<br>الجمعة : برياني + صيادية سمك
+						</p>
+						<br>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End About -->
+
+	<div class="about-section-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-6 text-center">
+					<div class="inner-column">
+						<h1 class="arabic-text"> مرحبًا بكم<span> في مطعم مندي تنور وحطب</span></h1>
+						<br>
+						<h2 class="arabic-text">
+							حيث نقدم أشهى الأطباق المميزة بنكهات أصيلة ومذاق لا يُنسى. نتشرف بزيارتكم ونتمنى لكم تجربة لا مثيل لها!
+						</h2>
+						<br>
+						<h2 class="arabic-text">
+							استمتعوا بأجوائنا الدافئة وخدمتنا المميزة، ودعونا نصنع معكم لحظات لا تُنسى مع كل لقمة. لأنكم تستحقون الأفضل، نحن هنا لنجعل كل زيارة تجربة استثنائية.
+						</h2>
+						
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6">
+					<div class="slider-container">
+						<div class="slider">
+							<img src="{% static 'images/slider4.png' %}" class="slider-image" alt="Slide 1">
+							<img src="{% static 'images/slider7.png' %}" class="slider-image" alt="Slide 1">
+							<img src="{% static 'images/slider5.png' %}" class="slider-image" alt="Slide 1">
+							<img src="{% static 'images/slider6.png' %}" class="slider-image" alt="Slide 1">
+							<img src="{% static 'images/slider1.png' %}" class="slider-image" alt="Slide 1">
+							<img src="{% static 'images/slider2.png' %}" class="slider-image" alt="Slide 1">
+							<img src="{% static 'images/slider3.png' %}" class="slider-image" alt="Slide 1">
+							
+							
+						</div>
+						<button class="prev button-home" onclick="moveSlide(-1)">&#10094;</button>
+						<button class="next button-home" onclick="moveSlide(1)">&#10095;</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- map -->
+	<div class="about-section-box border">
+		<div class="container flex-c">
+			<h1 class="m-b-20 arabic-text text-center" style="font-size:35px;margin:10px;"><strong>الفرع الاول : ميدان جزماتية - قبل جامع الصحابة</strong></h1>
+			<div id="map1"></div>
+		</div>
+		<div class="container flex-c">
+			<h1 class="m-b-20 arabic-text text-center" style="font-size:35px;margin:10px;"><strong>الفرع الثاني : قدسيا - طريق الجمعيات - بعد مقسم الهاتف</strong></h1>
+			<div id="map2"></div>
+		</div>
+		<div class="container flex-c">
+			<h1 class="m-b-20 arabic-text text-center" style="font-size:35px;margin:10px;"><strong>الفرع الثالث : مزة - شيخ سعد - مقابل بنايات ال 14 بناء الجبان</strong></h1>
+			<div id="map3"></div>
+		</div>
+	</div>
+	<script src="{% static '/leaflet/leaflet.js' %}"></script>
+	<script>
+  // 1 الخريطة 
+  var map1 = L.map('map1').setView([33.49798676123188, 36.29992456025508], 15);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map1);
+  L.marker([33.49798676123188, 36.29992456025508]).addTo(map1)
+    .bindPopup('مندي تنور و حطب')
+    .openPopup();
+  // الخريطة 2
+  var map2 = L.map('map2').setView([33.542501082667826, 36.214240793111856], 15);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map2);
+  L.marker([33.542501082667826, 36.214240793111856]).addTo(map2)
+    .bindPopup('مندي تنور و حطب')
+	.openPopup();
+
+  // الخريطة 3
+  var map3 = L.map('map3').setView([33.50647592120818, 36.25652949617517], 15);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map3);
+  L.marker([33.50647592120818, 36.25652949617517]).addTo(map3)
+    .bindPopup('مندي تنور و حطب')
+	.openPopup();
+</script>
+	<!-- End map -->
+{% endblock content %}    
